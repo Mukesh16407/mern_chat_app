@@ -1,6 +1,7 @@
 const express=require("express")
 const dotenv=require("dotenv")
 const connectDB = require("./config/db")
+const chatRoutes = require("./routes/chatRoutes");
 const userRoutes = require('./routes/userRoutes');
 
 dotenv.config();
@@ -25,6 +26,7 @@ app.get('/',(req,res)=>{
 // });
 
 app.use('/api/user',userRoutes)
+app.use('/api/chat',chatRoutes)
 
 const PORT=process.env.PORT||5000
 app.listen(PORT,console.log(`Running on port ${PORT}`))
